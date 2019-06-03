@@ -1,2 +1,2 @@
-[Phabricator on Ubuntu 18.04]
+[[Phabricator on Ubuntu 18.04]]
 
