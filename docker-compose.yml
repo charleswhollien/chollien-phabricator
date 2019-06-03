@@ -1,0 +1,26 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./database:/var/lib/mysql
+  phabricator:
+    #image: phabricator
+    build: ./
+    restart: always
+    environment:
+      MYSQLUSER: root
+      MYSQLPASS: example
+      MYSQLHOST: db
+      MYSQLPORT: 3306
+    volumes:
+      - ./conf:/var/www/phabricator/conf/local
+      - ./files:/files
+    ports:
+      - 80:80
