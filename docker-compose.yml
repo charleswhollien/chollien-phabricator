@@ -22,5 +22,6 @@ services:
     volumes:
       - ./conf:/var/www/phabricator/conf/local
       - ./files:/files
+      - ./repo:/var/repo
     ports:
       - 80:80
